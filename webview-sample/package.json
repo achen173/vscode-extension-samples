@@ -39,7 +39,9 @@
 		"lint": "eslint . --ext .ts,.tsx",
 		"watch": "tsc -w -p ./"
 	},
-	"dependencies": {},
+	"dependencies": {
+		"cpu-gauge": "^1.1.0"
+	},
 	"devDependencies": {
 		"@typescript-eslint/eslint-plugin": "^3.0.2",
 		"@typescript-eslint/parser": "^3.0.2",

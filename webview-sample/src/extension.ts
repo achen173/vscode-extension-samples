@@ -1,9 +1,7 @@
 import * as vscode from 'vscode';
 
 const cats = {
-	'Coding Cat': 'https://media.giphy.com/media/JIX9t2j0ZTN9S/giphy.gif',
-	'Compiling Cat': 'https://media.giphy.com/media/mlvseq9yvZhba/giphy.gif',
-	'Testing Cat': 'https://media.giphy.com/media/3oriO0OEd9QIDdllqo/giphy.gif'
+	'System Specs': 'https://media.giphy.com/media/scXNvIZDB7ZQH9qLeT/giphy.gif',
 };
 
 export function activate(context: vscode.ExtensionContext) {
@@ -140,17 +138,10 @@ class CatCodingPanel {
 
 		// Vary the webview's content based on where it is located in the editor.
 		switch (this._panel.viewColumn) {
-			case vscode.ViewColumn.Two:
-				this._updateForCat(webview, 'Compiling Cat');
-				return;
-
-			case vscode.ViewColumn.Three:
-				this._updateForCat(webview, 'Testing Cat');
-				return;
 
 			case vscode.ViewColumn.One:
 			default:
-				this._updateForCat(webview, 'Coding Cat');
+				this._updateForCat(webview, 'System Specs');
 				return;
 		}
 	}
@@ -194,12 +185,17 @@ class CatCodingPanel {
 				<link href="${stylesResetUri}" rel="stylesheet">
 				<link href="${stylesMainUri}" rel="stylesheet">
 
-				<title>Cat Coding</title>
+				<title>System Specs</title>
 			</head>
 			<body>
+				<div>hello</div>
 				<img src="${catGifPath}" width="300" />
-				<h1 id="lines-of-code-counter">0</h1>
+				<div>hello</div>
+				<h1 style="font-size:10px;">Wifi Speed: <h3 id="lines-of-code-counter1">0</h3></h1>
+				<h1 style="font-size:10px;">CPU Speed: <h3 id="lines-of-code-counter2">0</h3></h1>
+				<h1 style="font-size:10px;">Power: <h3 id="lines-of-code-counter3">0</h3></h1>
 
+				<script nonce="${nonce}" src="${scriptUri}"></script>
 				<script nonce="${nonce}" src="${scriptUri}"></script>
 			</body>
 			</html>`;
@@ -207,10 +203,5 @@ class CatCodingPanel {
 }
 
 function getNonce() {
-	let text = '';
-	const possible = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789';
-	for (let i = 0; i < 32; i++) {
-		text += possible.charAt(Math.floor(Math.random() * possible.length));
-	}
-	return text;
+	return 'Hello';
 }
